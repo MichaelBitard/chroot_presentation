@@ -111,6 +111,7 @@
 </section>
 <section>
     <h2>Alternative</h2>
+
     <p>
         Chroot minimaliste avec configuration automatisée.
     </p>
@@ -133,9 +134,72 @@
 </section>
 <section>
     <h2>Quel outil choisir ?</h2>
+
     <p>
         <img width="100" height="100" src="img/puppet.png" alt="Puppet labs"> VS <img src="img/ansible.png" alt="Ansible works">
     </p>
+</section>
+
+<section>
+    <section>
+        <h2>Puppet en standalone</h2>
+        <pre>
+            <code data-trim>
+package {['man-db', 'wget', 'ngrep', 'tree', 'curl',
+'bash-completion', 'language-pack-fr',
+'gitk', 'bc', 'ccze',
+'vim', 'vim-puppet','unzip','time',
+'logrotate', 'sysstat', 'tmux', 'xclip', 'firefox',
+'libcanberra-gtk0', # Remove warning when launching firefox, better theme
+'x11-xkb-utils','xinput', 'x11-xserver-utils', 'xsltproc', 'msmtp',
+'sshfs',
+'meld','scite','make', 'python-docutils',
+'rdesktop', 'x11vnc', 'vinagre', 'ack-grep', 'imagemagick',
+'feh',
+'python-setuptools', 'pdfgrep', 'evince', 'python-demjson',
+'telnet', 'gnome-keyring', 'pssh'
+]: ensure => installed ,}
+
+package { "git-svn": ensure => installed }
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h2>Puppet en standalone</h2>
+        <pre>
+            <code data-trim>
+class intellij ( $username ) {
+    $idea_location="/home/nfc/applications"
+    $idea_archive="ideaIC-12.1.tar.gz"
+    exec { "mkdir -p $idea_location &&
+            tar xzf /tmp/$idea_archive -C $idea_location &&
+            chown -R $username:$username $idea_location" :
+        alias => "install_idea",
+        unless => "test -d $idea_location/idea-IC-129*",
+        require => Download_File["download_idea"],
+    }
+    download_file { "$idea_archive" :
+        alias => "download_idea",
+        site => "http://download-ln.jetbrains.com/idea",
+        cwd => "/tmp",
+        unless => "test -d $idea_location/idea-IC-129*
+            || test -d /tmp/$idea_archive",
+    }
+}
+            </code>
+        </pre>
+    </section>
+
+    <section>
+        <h3>Quelques chiffres</h3>
+        <p>Projets Contactless chez MBS</p>
+        <p>1523 lignes de code puppet</p>
+        <p>41 fichiers puppet</p>
+        <p>80 fichiers</p>
+        <p>16493 lignes tout fichiers confondus</p>
+        <strong class="fragment" style="color: #ff2c2d;">Il faut maintenir $$</strong>
+    </section>
 </section>
 
 <section>
