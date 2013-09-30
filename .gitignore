@@ -7,3 +7,4 @@ node_modules/
 .idea
 *.iml
 demo/chroot_env/
+ansible

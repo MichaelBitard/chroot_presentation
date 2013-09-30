@@ -1,0 +1,7 @@
+---
+- hosts: 127.0.0.1
+  user: bitardo
+  sudo: yes
+  tasks:
+  - user: name=tours createhome=yes group=jug shell=/bin/bash
+  - file: path=/home/tours owner=tours group=jug mode=0774 state=directory
