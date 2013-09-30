@@ -18,3 +18,9 @@ group { $groupId:
   ensure => absent,
   require => User[$username],
 }
+
+file { "/home/$username/":
+  ensure  => absent,
+  force   => true,
+  require => User[$username],
+}

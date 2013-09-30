@@ -18,3 +18,8 @@ user { $username:
 group { $groupId:
   ensure => present,
 }
+
+file { "/home/tours/":
+  ensure => directory,
+  require => User[$username],
+}
