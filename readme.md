@@ -12,5 +12,5 @@ C'est agréable...
 
 Pourquoi ne pas faire pareil avec les postes de dev?
 
-Le but de cette présentation est de vous faire découvrir les outils utilisés dans notre équipe afin de d'automatiser/isoler/uniformiser les projets.<br />
+Le but de cette présentation est de vous faire découvrir les outils utilisés dans notre équipe afin d'automatiser/isoler/uniformiser les projets.<br />
 Côté technique, je parlerai de chroot, puppet, ansible, et un tout petit peu de vagrant.
