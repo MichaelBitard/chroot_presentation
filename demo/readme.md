@@ -3,7 +3,7 @@
 
 ```bash
 mkdir chroot_env
-./chroot.sh chroot_env bash /bin/bash bash ls cp mv rm cat more mkdir touch
+./chroot.sh chroot_env bash ls cp mv rm cat more mkdir touch
 sudo chroot chroot_env
 ```
 
